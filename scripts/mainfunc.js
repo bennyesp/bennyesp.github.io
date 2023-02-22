@@ -82,12 +82,20 @@ const gen={
     },
     postlist:function(){
         getjson('/data/post.json').then(
-            function(dat){console.log(dat[0].name);}
+            function(dat){let i,pcount=dat.length;
+                for(i=0;i<pcount;i++){
+                    let post=dat[i],list=document.createElement('li'),plink=document.createElement('a');
+                    document.getElementById('app-list').appendChild(list);
+                    plink.textContent=post.name;
+                    plink.href=post.link;
+                    list.appendChild(plink);
+                }
+            }
         );
     }
 };
 const getjson=async function(u){
     let res=await fetch(u);
-    const datum=await res.json();
-    return datum;
+    const dat=await res.json();
+    return dat;
 }
