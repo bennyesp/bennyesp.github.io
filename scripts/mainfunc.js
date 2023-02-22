@@ -95,7 +95,7 @@ const gen={
     }
 };
 const getjson=async function(u){
-    let res=fetch(u);
-    const dat=res.json();
+    let res=await fetch(u);
+    const dat=await res.json();
     return dat;
 }
