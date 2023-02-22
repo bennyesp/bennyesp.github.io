@@ -82,7 +82,7 @@ const gen={
     },
     postlist:function(){
         getjson('/data/post.json').then(
-            function(dat){console.log(dat);}
+            function(dat){console.log(dat[0].name);}
         );
     }
 };
