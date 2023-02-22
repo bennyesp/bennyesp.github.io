@@ -81,9 +81,9 @@ const gen={
         }
     },
     postlist:function(){
+        let target=document.getElementById('app-list');
         getjson('/data/post.json').then(
             function(dat){let i,pcount=dat.length;
-                let target=document.getElementById('app-list');
                 for(i=0;i<pcount;i++){
                     let post=dat[i],list=document.createElement('li'),plink=document.createElement('a');
                     plink.textContent=post.name;
