@@ -81,7 +81,7 @@ const gen={
         }
     },
     postlist:function(){
-        const datum=getjson('data/post.json');
+        const datum=getjson('/data/post.json');
         console.log(datum);
     }
 };
