@@ -84,7 +84,7 @@ const gen={
         getjson('/data/post.json').then(
             function(dat){let i,pcount=dat.length;
                 for(i=0;i<pcount;i++){
-                    let target=document.getElementById('app-list'),post=dat[i],list=document.createElement('li');let plink=document.createElement('a');
+                    let target=document.getElementById('app-list'),post=dat[i],list=document.createElement('li'),plink=document.createElement('a');
                     plink.textContent=post.name;
                     plink.href=post.link;
                     target.appendChild(list);
@@ -95,7 +95,8 @@ const gen={
     }
 };
 const getjson=async function(u){
-    let res=await fetch(u);
-    const dat=await res.json();
-    return dat;
+    const getjson=async function(u){
+    return fetch(u);
+    // const dat=await res.json();
+    // return dat;
 }
