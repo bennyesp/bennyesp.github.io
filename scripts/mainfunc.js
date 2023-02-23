@@ -53,7 +53,7 @@ const gen={
         },
         title:function(t){
             let h1;try{h1=document.getElementsByTagName('h1')[0]}catch(e){h1=0;}
-            document.title=(/https:\/\/bennyesp\.github\.io\/?/.test(document.URL))?'Home - Benny ESP GitHub Page':(h1!==0)?`${h1.textContent} - Benny ESP GitHub Page`:`${t} - Benny ESP GitHub Page`;}
+            document.title=(ptype==='home')?'Home - Benny ESP GitHub Page':(h1!==0)?`${h1.textContent} - Benny ESP GitHub Page`:`${t} - Benny ESP GitHub Page`;}
     },
     navlist:{top:[{name:'Halaman utama',link:'/'},{name:'Penjumlahan berurutan',link:'/penjumlahan-berurutan/index.html'}],
         foot:[{name:'Kebijakan privasi',link:'/privacy-policy'},{name:'Syarat dan ketentuan',link:'/terms-of-use'}]
