@@ -1,66 +1,7 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Penjumlahan bilangan berurutan</title>
-    <style>
-        *{margin:0;padding:0;}
-        h1.title {width: max-content;margin: 2em auto;}
-        body{font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;background: #333;
-    color: #ccc;}
-        .forbidden{color:red;}
-        .form-container {
-    display: flex;
-    flex-direction: column;
-    gap: .5em;
-    align-items: flex-start;
-}
-h2.inH{margin:1.2em 0;}
-.container {
-    margin: 2em auto;
-    width: 55vw;
-}
-
-.form-line {
-    display: flex;
-    gap: 1em;
-    flex-direction: row;
-}
-
-.form-line label {
-    width: 150px;
-}
-
-button.type-1-btn {
-    border: none;
-    padding: .8em;
-    background: #0f0f0f;
-    color: #ccc;
-    border-radius: 20px;
-    margin-top: 1em;
-}
-
-button.type-1-btn:hover {
-    background: #555;
-    color: wheat;
-}
-#result {
-    margin-top: 2em;
-}
-.numres {
-    margin-top: 0.5em;
-    font-size: 24pt;
-    font-weight: bold;
-    overflow-x:auto;
-}
-@media (max-width:800px) {
-    .container {
-        width: 92vw;
-    }
-}
-    </style>
+    <script src="scripts/mainfunc.js"></script>
     <script>
         const field={
             jumlahkan:function(){
@@ -93,5 +34,6 @@ button.type-1-btn:hover {
         <section id="result"></section>
         <button class="type-1-btn" onclick="field.clear()">Bersihkan</button>
     </div>
+    <script>var ptype='app';gen.head.font.exec();gen.head.style.exec();gen.head.met.exec();gen.head.title();gen.nav();gen.nav('footer');gen.postlist();</script>
 </body>
 </html>
