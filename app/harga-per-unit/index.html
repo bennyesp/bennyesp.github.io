@@ -16,10 +16,10 @@
         const field={
             hitung:function(){
                 let a=document.getElementById('namabarang').value,b=document.getElementById('satuan').value,c=parseInt(document.getElementById('jumlahperkemasan').value),d=parseInt(document.getElementById('harga1kemasan').value),r=document.getElementById('result');
-                let k=(d.value/c.value).toLocaleString('id');
+                let k=(d/c).toLocaleString('id');
                 r.innerHTML=`<h2 class="inH">Hasil</h2>Harga per ${b} dari barang ${a} <div class='numres'>= Rp${k}</div>`;
             },
-            clear:function(){document.getElementsById('namabarang').value=document.getElementById('jumlahperkemasan').value=document.getElementById('harga1kemasan').value=document.getElementById('result').textContent='';}
+            clear:function(){document.getElementById('namabarang').value=document.getElementById('jumlahperkemasan').value=document.getElementById('harga1kemasan').value=document.getElementById('result').textContent='';}
         }
     </script>
 </head>
