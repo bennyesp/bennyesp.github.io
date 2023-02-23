@@ -84,15 +84,13 @@ const gen={
         let target=document.getElementById('app-list');
         getjson('/data/post.json').then(
             function(dat){let i,pcount=dat.length;
-                document.addEventListener("load", function(){
-                    for(i=0;i<pcount;i++){
-                        let post=dat[i],list=document.createElement('li'),plink=document.createElement('a');
-                        plink.textContent=post.name;
-                        plink.href=post.link;
-                        target.appendChild(list);
-                        list.appendChild(plink);
-                    }
-                });
+                for(i=0;i<pcount;i++){
+                    let post=dat[i],list=document.createElement('li'),plink=document.createElement('a');
+                    plink.textContent=post.name;
+                    plink.href=post.link;
+                    target.appendChild(list);
+                    list.appendChild(plink);
+                }
             }
         );
     }
