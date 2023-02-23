@@ -81,20 +81,20 @@ const gen={
         }
     },
     postlist:function(){
-        let target=document.getElementById('app-list'),dt;
+        let target=document.getElementById('app-list');
         getjson('/data/post.json').then(
-            function(dat){
-                dt=dat;
+            function(dat){let i,pcount=dat.length;
+                document.addEventListener("load", function(){
+                    for(i=0;i<pcount;i++){
+                        let post=dat[i],list=document.createElement('li'),plink=document.createElement('a');
+                        plink.textContent=post.name;
+                        plink.href=post.link;
+                        target.appendChild(list);
+                        list.appendChild(plink);
+                    }
+                });
             }
         );
-        let i,pcount=dt.length;
-        for(i=0;i<pcount;i++){
-            let post=dt[i],list=document.createElement('li'),plink=document.createElement('a');
-            plink.textContent=post.name;
-            plink.href=post.link;
-            target.appendChild(list);
-            list.appendChild(plink);
-        }
     }
 };
 const getjson=async function(u){
