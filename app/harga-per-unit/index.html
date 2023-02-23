@@ -3,16 +3,6 @@
 <head>
     <script src="/scripts/mainfunc.js"></script>
     <script>
-        /*function hitung(){
-            var barang=document.getElementById('namabarang');
-            var satuan=document.getElementById('satuan').value;
-            var jmlperk=document.getElementById('jumlahperkemasan');
-            var harga1kemasan=document.getElementById('harga1kemasan');
-            var result=(harga1kemasan.value/jmlperk.value).toLocaleString('id');
-            var resultloc=document.getElementById('result');
-            document.getElementById('reaw').innerHTML='Harga '+barang.value+' per '+satuan+' adalah';
-            resultloc.innerHTML='Rp '+result+'/'+satuan;
-        }*/
         const field={
             hitung:function(){
                 let a=document.getElementById('namabarang').value,b=document.getElementById('satuan').value,c=parseInt(document.getElementById('jumlahperkemasan').value),d=parseInt(document.getElementById('harga1kemasan').value),r=document.getElementById('result');
@@ -24,10 +14,6 @@
     </script>
 </head>
 <body>
-    <header>
-        <span class="headertitle">Hitung 1</span>
-        <a class="homebutton" href="/">home</a>
-    </header>
     <div class="container">
         <section class="form-container">
             <div class="form-line">
