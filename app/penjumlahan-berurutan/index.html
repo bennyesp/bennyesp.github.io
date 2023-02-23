@@ -9,8 +9,7 @@
                 a=(a)?a:0;b=(b)?b:0;
                 if(a<b){min=a,max=b;}else if(a==b){r.innerHTML='<i class="forbidden">Angka 1 dan 2 tidak boleh sama!</i>';}else if(a>b){min=b,max=a;}
                 if(a!==b){
-                    for(i=min;i<=max;i++){k+=i;}
-                    r.innerHTML=(max-min>6)?`<h2 class="inH">Hasil</h2>${min} + ${min+1} + ${min+2} + ... + ${max-2} + ${max-1} + ${max} <div class='numres'>= ${k}</div>`:(max-min<6&&max-min>1)?`<h2 class="inH">Hasil</h2>${min} + ... + ${max} <div class='numres'>= ${k}</div>`:`<h2 class="inH">Hasil</h2>${min} + ${max} <div class='numres'>= ${k}</div>`;
+                    for(i=min;i<=max;i++){k+=i;}k=k.toLocaleString('id');r.innerHTML=(max-min>6)?`<h2 class="inH">Hasil</h2>${min} + ${min+1} + ${min+2} + ... + ${max-2} + ${max-1} + ${max} <div class='numres'>= ${k}</div>`:(max-min<6&&max-min>1)?`<h2 class="inH">Hasil</h2>${min} + ... + ${max} <div class='numres'>= ${k}</div>`:`<h2 class="inH">Hasil</h2>${min} + ${max} <div class='numres'>= ${k}</div>`;
                 }
             },
             clear:function(){document.getElementById('angka1').value=document.getElementById('angka2').value=document.getElementById('result').textContent='';}
