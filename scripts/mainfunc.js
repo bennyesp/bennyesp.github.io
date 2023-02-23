@@ -48,6 +48,7 @@ const gen={
             exec:function(addr,ext){
                 const styleloc='styles/';let i,stlist=(!addr)?gen.head.style.list:addr,stlen=stlist.length;
                 if(!ext){for(i=0;i<stlen;i++){gen.head.style.func(`${styleloc}${stlist[i]}`);}}else{gen.head.style.func(addr);}
+                gen.head.style.func(`${styleloc}${ptype}.css`);
             }
         },
         title:function(t){
