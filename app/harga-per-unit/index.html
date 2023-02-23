@@ -13,6 +13,14 @@
             document.getElementById('reaw').innerHTML='Harga '+barang.value+' per '+satuan+' adalah';
             resultloc.innerHTML='Rp '+result+'/'+satuan;
         }
+        const field={
+            hitung:function(){
+                let a=document.getElementById('namabarang').value,b=document.getElementById('satuan').value,c=parseInt(document.getElementById('jumlahperkemasan').value),d=parseInt(document.getElementById('harga1kemasan').value),r=document.getElementById('result');
+                let k=(d.value/c.value).toLocaleString('id');
+                r.innerHTML=`<h2 class="inH">Hasil</h2>${min} + ${min+1} + ${min+2} + ... + ${max-2} + ${max-1} + ${max} <div class='numres'>= Rp${k}</div>`;
+            },
+            clear:function(){document.getElementById('angka1').value=document.getElementById('angka2').value=document.getElementById('result').textContent='';}
+        }
     </script>
     <!-- <style>
         *{padding:0;margin:0;
@@ -102,10 +110,9 @@
             </div>
             <button onclick="hitung()">Hitung</button>
         </section>
-        <section class="result">
-            <p id="reaw"></p>
-            <span id="result" class="results"></span>
-        </section>
+        <section id="result"></section>
+        <button class="type-1-btn" onclick="field.clear()">Bersihkan</button>
+        
     </div>
     <script>var ptype='app';gen.head.font.exec();gen.head.style.exec();gen.head.met.exec();gen.head.title();gen.nav();gen.nav('footer');</script>
 </body>
