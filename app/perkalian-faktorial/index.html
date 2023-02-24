@@ -6,8 +6,8 @@
         const field={
             faktorial:function(){
                 let a=parseInt(document.getElementById('angka').value),min,max,i,k=1,r=document.getElementById('result');
-                if(a<1){r.innerHTML='<i class="forbidden">Angka tidak boleh nol atau negatif!</i>';}
-                if(a>=0){
+                if(a<=0){r.innerHTML='<i class="forbidden">Angka tidak boleh nol atau negatif!</i>';}
+                if(a>0){
                 for(i=a;i>0;i--){k*=i;}k=k.toLocaleString('id');r.innerHTML=(a>6)?`<h2 class="inH">Hasil</h2>${a} × ${a-1} × ${a-2} × ... × 3 × 2 × 1<div class='numres'>= ${k}</div>`:(a<=6&&a>4)?`<h2 class="inH">Hasil</h2>${a} × ${a-1} × ... × 2 × 1 <div class='numres'>= ${k}</div>`:(a===4)?`<h2 class="inH">Hasil</h2>4 × 3 × 2 × 1 <div class='numres'>= ${k}</div>`:(a===3)?`<h2 class="inH">Hasil</h2>3 × 2 × 1 <div class='numres'>= ${k}</div>`:(a===2)?`<h2 class="inH">Hasil</h2>2 × 1 <div class='numres'>= ${k}</div>`:`<h2 class="inH">Hasil</h2><div class='numres'>= ${k}</div>`;
                 }
             },
