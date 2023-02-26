@@ -28,4 +28,8 @@
     .container {
         width: 92vw;
     }
+    .form-line{
+        gap: 0.5em;
+        flex-direction: column;
+    }
 }
