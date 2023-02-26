@@ -55,9 +55,7 @@ const gen={
             let h1;try{h1=document.getElementsByTagName('h1')[0]}catch(e){h1=0;}
             document.title=(ptype==='home')?'Home - Benny ESP GitHub Page':(h1)?`${h1.textContent} - Benny ESP GitHub Page`:`${t} - Benny ESP GitHub Page`;}
     },
-    navlist:{top:[{name:'Halaman utama',link:'/'},{name:'Penjumlahan berurutan',link:'/penjumlahan-berurutan/index.html'}],
-        foot:[{name:'Kebijakan privasi',link:'/privacy-policy'},{name:'Syarat dan ketentuan',link:'/terms-of-use'}]
-    },
+    navlist:{top:[{name:'Home',link:'/'}],foot:[{name:'Kebijakan privasi',link:'/privacy-policy'},{name:'Syarat dan ketentuan',link:'/terms-of-use'}]},
     nav:function(n){
         let nav=document.createElement('nav'),nlist,nc,nlc;
         if(n==='footer'){
