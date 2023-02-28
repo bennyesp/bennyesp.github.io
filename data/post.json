@@ -1,5 +1,6 @@
 [
     {"name":"Penjumlahan berurutan","link":"/app/penjumlahan-berurutan"},
     {"name":"Perkalian faktorial","link":"/app/perkalian-faktorial"},
-    {"name":"Harga barang per unit","link":"/app/harga-per-unit"}
+    {"name":"Harga barang per unit","link":"/app/harga-per-unit"},
+    {"name":"Penghitung diskon","link":"/app/hitung-diskon"}
 ]
