@@ -24,6 +24,10 @@
     font-weight: bold;
     overflow-wrap:break-word;
 }
+td {
+    padding: 5px;
+    box-sizing: border-box;
+}
 @media (max-width:800px) {
     .container {
         width: 92vw;
