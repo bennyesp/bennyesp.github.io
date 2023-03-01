@@ -8,7 +8,7 @@
                 let a=parseInt(document.getElementById('konsum').value),b=parseInt(document.getElementById('jarak').value),r=document.getElementById('result'),k;
                 if(a&&b){
                     k=b/a;
-                    r.textContent=`<table>
+                    r.innerHTML=`<table>
                         <tr>
                             <td>Konsumsi BBM</td>
                             <td class="titik2">:</td>
