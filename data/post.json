@@ -3,4 +3,5 @@
     {"name":"Perkalian faktorial","link":"/app/perkalian-faktorial"},
     {"name":"Harga barang per unit","link":"/app/harga-per-unit"},
     {"name":"Penghitung diskon","link":"/app/hitung-diskon"}
+    {"name":"Penghitung kebutuhan BBM","link":"/app/kebutuhan-bahan-bakar"}
 ]
