@@ -8,6 +8,7 @@
                 let a=parseInt(document.getElementById('konsum').value),b=parseInt(document.getElementById('jarak').value),r=document.getElementById('result'),k;
                 if(a&&b){
                     k=b/a;
+                    k=Math.ceil(k*100)/100;
                     r.innerHTML=`<table>
                         <tr>
                             <td>Konsumsi BBM</td>
