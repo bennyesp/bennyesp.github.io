@@ -12,7 +12,7 @@
                     hp=ha+(ppn*ha);
                     hap=ha.toLocaleString('id');
                     hpp=hp.toLocaleString('id');
-                    r.innerHTML=`harga setelah PPN 11% = harga awal + (harga awal × ppn 11%)<br>= ${hap} + (${hap} × 11%)<div class='numres'>= ${hpp}</div>`;
+                    r.innerHTML=`harga setelah PPN 11% = harga awal + (harga awal × ppn 11%)<br>= Rp${hap} + (Rp${hap} × 11%)<div class='numres'>= Rp${hpp}</div>`;
                 }
             },
             clear:function(){document.getElementById('angka1').value=document.getElementById('angka2').value=document.getElementById('result').textContent='';}
