@@ -10,7 +10,9 @@
                 if(ha<=0||!ha){r.innerHTML='<i class="forbidden">Masukkan harga!</i>'}
                 else{
                     hp=ha+(ppn*ha);
-                    r.innerHTML=`harga setelah PPN 11% = harga awal + (harga awal × ppn 11%)<br>= ${ha} + (${ha} × 11%)<div class='numres'>= ${hp}</div>`;
+                    hap=ha.toLocaleString('id');
+                    hpp=hp.toLocaleString('id');
+                    r.innerHTML=`harga setelah PPN 11% = harga awal + (harga awal × ppn 11%)<br>= ${hap} + (${hap} × 11%)<div class='numres'>= ${hpp}</div>`;
                 }
             },
             clear:function(){document.getElementById('angka1').value=document.getElementById('angka2').value=document.getElementById('result').textContent='';}
