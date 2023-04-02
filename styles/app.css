@@ -28,6 +28,15 @@ td {
     padding: 5px;
     box-sizing: border-box;
 }
+input[type=number] {
+    background: var(--c3);
+    color: #ffe970;
+    height: 2em;
+    font-size: 20px;
+    border: 1px solid;
+    border-radius: 20px;
+    padding: 10px 0 10px 10px;
+}
 @media (max-width:800px) {
     .container {
         width: 92vw;
