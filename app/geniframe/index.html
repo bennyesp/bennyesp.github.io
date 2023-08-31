@@ -40,6 +40,7 @@
                     copybutton.setAttribute('onclick','iframegenerator.copy()');
                     target.insertAdjacentElement('afterend',copybutton);
                 }
+                preview.innerHTML='';
                 preview.appendChild(iframe);
             },
             copy:async function(){
