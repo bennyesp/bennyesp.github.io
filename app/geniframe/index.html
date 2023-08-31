@@ -9,10 +9,12 @@
         const ptype='app';
         const iframegenerator={
             toggle_defaultsrcdoc:function(){
-                /*let srcdoc=document.getElementById('srcdoc'),default_srcdoc_cover=document.getElementById('default-srcdoc-cover');
-                if (srcdoc.checked===TRUE){default_srcdoc_cover.classList.remove('hidden')}*/
                 let srcdoc_group=document.getElementById('form-group-srcdoc');
                 srcdoc_group.classList.toggle('hidden');
+            },
+            fill_customsrcdoc:function(){
+                let customsrcdoc=document.getElementById('customsrcdoc');
+                customsrcdoc.classList.toggle('hidden');
             },
             main_run:function(){
                 let target=document.getElementById('result'),src=document.getElementById('source').value,theclass=document.getElementById('theclass');
@@ -40,11 +42,11 @@
             <div id='form-group-srcdoc'>
                 <div class="form-line" id='default-srcdoc-cover'>
                     <label for="defaultsrcdoc">default srcdoc</label>
-                    <input type="checkbox" checked id="defaultsrcdoc" name="defaultsrcdoc" onclick="">
+                    <input type="checkbox" checked id="defaultsrcdoc" name="defaultsrcdoc" onclick="iframegenerator.fill_customsrcdoc()">
                 </div>
                 <div class="form-line" id='custom-srcdoc-cover'>
                     <label for="customsrcdoc">custom srcdoc</label>
-                    <input type="text" checked id="customsrcdoc" name="customsrcdoc">
+                    <textarea id="customsrcdoc" name="customsrcdoc" rows="5" cols="50"></textarea>
                 </div>
             </div>
             <button class="type-1-btn" onclick="">Generate!</button>
