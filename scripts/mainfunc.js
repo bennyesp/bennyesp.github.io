@@ -15,7 +15,7 @@ const gen={
             }
         },
         font:{
-            list:[{font:'public sans',href:'https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap'}],
+            list:[{font:'public sans',href:'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap'}],
             exec:function(){
                 let i,flist=gen.head.font.list,flen=flist.length;
                 for(i=0;i<flen;i++){
