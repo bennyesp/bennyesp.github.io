@@ -31,6 +31,7 @@
                 }
                 let iframetext=iframe.outerHTML;
                 target.textContent=iframetext;
+                console.log(copybutton);
                 if(!copybutton){
                     copybutton=document.createElement('button');
                     copybutton.classList.add('copybutton');
@@ -45,7 +46,7 @@
             copy:async function(){
                 let target=document.getElementById('code-container');
                 try {
-                  await navigator.clipboard.writeText(target).textContent;
+                  await navigator.clipboard.writeText(target.textContent);
                   alert('Berhasil menyalin iframe');
                 } catch (err) {
                   alert('Gagal. Error: ', err);
