@@ -17,7 +17,7 @@
                 customsrcdoc.classList.toggle('hidden');
             },
             main_run:function(){
-                let target=document.getElementById('result'),src=document.getElementById('source').value,theclass=document.getElementById('theclass'),srcdoc=document.getElementById('srcdoc'),defaultsrcdoc=document.getElementById('defaultsrcdoc'),iframe=document.createElement('iframe'),customsrcdoc=document.getElementById('customsrcdoc').value;
+                let target=document.getElementById('result'),src=document.getElementById('source').value,theclass=document.getElementById('theclass').value,srcdoc=document.getElementById('srcdoc'),defaultsrcdoc=document.getElementById('defaultsrcdoc'),iframe=document.createElement('iframe'),customsrcdoc=document.getElementById('customsrcdoc').value;
                 if(theclass){iframe.classList.add(theclass)}
                 iframe.src=src;
                 iframe.height=450;
