@@ -26,16 +26,31 @@
 <body>
     <div class="container">
         <h1 class="title">Generator iframe</h1>
-      <p>Coming soon</p>
-        <!--<div class="form-container">
+        <div class="form-container">
             <div class="form-line">
-                <label for="harga">Harga awal</label>
-                <input type="number" id="harga" name="harga">
+                <label for="harga">Source</label>
+                <input type="text" id="source" name="source">
             </div>
-            <button class="type-1-btn" onclick="field.ppn()">Hitung</button>
+            <div class="form-line">
+                <label for="theclass">class</label>
+                <input type="text" id="theclass" name="theclass">
+            </div>
+            <div class="form-line">
+                <label for="srcdoc">srcdoc</label>
+                <input type="checkbox" id="srcdoc" name="srcdoc" onclick="">
+            </div>
+            <div class="form-line" id='default-srcdoc-cover'>
+                <label for="defaultsrcdoc">default srcdoc</label>
+                <input type="checkbox" checked id="defaultsrcdoc" name="defaultsrcdoc" onchange="">
+            </div>
+            <div class="form-line" id='custom-srcdoc-cover'>
+                <label for="customsrcdoc">custom srcdoc</label>
+                <input type="text" checked id="customsrcdoc" name="customsrcdoc">
+            </div>
+            <button class="type-1-btn" onclick="">Generate!</button>
         </div>
         <section id="result"></section>
-        <button class="type-1-btn" onclick="field.clear()">Bersihkan</button>-->
+        <button class="type-1-btn" onclick="field.clear()">Bersihkan</button>
     </div>
     <script>gen.nav();gen.nav('footer');gen.head.title();</script>
 </body>
