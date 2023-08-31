@@ -18,8 +18,9 @@
                 customsrcdoc.classList.toggle('hidden');
             },
             main_run:function(){
-                let preview=document.getElementById('preview'),target=document.getElementById('code-container'),src=document.getElementById('source').value,theclass=document.getElementById('theclass').value,srcdoc=document.getElementById('srcdoc'),defaultsrcdoc=document.getElementById('defaultsrcdoc'),iframe=document.createElement('iframe'),customsrcdoc=document.getElementById('customsrcdoc').value,copybutton=document.createElement('a');
+                let preview=document.getElementById('preview'),target=document.getElementById('code-container'),src=document.getElementById('source').value,theclass=document.getElementById('theclass').value,srcdoc=document.getElementById('srcdoc'),defaultsrcdoc=document.getElementById('defaultsrcdoc'),iframe=document.createElement('iframe'),customsrcdoc=document.getElementById('customsrcdoc').value,copybutton=document.createElement('button');
                 copybutton.classList.add('copybutton');
+                copybutton.type='button';
                 copybutton.textContent='Salin';
                 copybutton.click='iframegenerator.copy()';
                 if(theclass){iframe.classList.add(theclass)}
