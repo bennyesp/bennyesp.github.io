@@ -37,7 +37,7 @@
                     copybutton.type='button';
                     copybutton.id='copybutton';
                     copybutton.textContent='Salin';
-                    copybutton.click='iframegenerator.copy()';
+                    copybutton.setAttribute('onclick','iframegenerator.copy()');
                     target.insertAdjacentElement('afterend',copybutton);
                 }
                 preview.appendChild(iframe);
