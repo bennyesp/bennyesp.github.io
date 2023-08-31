@@ -17,7 +17,7 @@
                 customsrcdoc.classList.toggle('hidden');
             },
             main_run:function(){
-                let target=document.getElementById('code-container'),src=document.getElementById('source').value,theclass=document.getElementById('theclass').value,srcdoc=document.getElementById('srcdoc'),defaultsrcdoc=document.getElementById('defaultsrcdoc'),iframe=document.createElement('iframe'),customsrcdoc=document.getElementById('customsrcdoc').value;
+                let preview=document.getElementById('preview'),target=document.getElementById('code-container'),src=document.getElementById('source').value,theclass=document.getElementById('theclass').value,srcdoc=document.getElementById('srcdoc'),defaultsrcdoc=document.getElementById('defaultsrcdoc'),iframe=document.createElement('iframe'),customsrcdoc=document.getElementById('customsrcdoc').value;
                 if(theclass){iframe.classList.add(theclass)}
                 iframe.src=src;
                 iframe.height=450;
@@ -30,6 +30,7 @@
                 }
                 let iframetext=iframe.outerHTML;
                 target.textContent=iframetext;
+                preview.appendChild(iframe);
             }
         }
         gen.head.font.exec();gen.head.style.exec();gen.head.met.exec();
@@ -75,7 +76,17 @@
             </div>
             <button class="type-1-btn" onclick="iframegenerator.main_run()">Generate!</button>
         </div>
-        <section id="result"><pre id='code-container'></pre></section>
+        <section id="result">
+            <div class='code'>
+                <h2 class='inH'>Kode</h2>
+                <pre id='code-container'></pre>
+            </div>
+            <div class='preview'>
+                <h2 class='inH'>Preview</h2>
+                <div id='preview'>
+                </div>
+            </div>
+        </section>
         <button class="type-1-btn" onclick="field.clear()">Bersihkan</button>
     </div>
     <script>gen.nav();gen.nav('footer');gen.head.title();</script>
