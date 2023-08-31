@@ -17,7 +17,7 @@
                 customsrcdoc.classList.toggle('hidden');
             },
             main_run:function(){
-                let target=document.getElementById('result'),src=document.getElementById('source').value,theclass=document.getElementById('theclass').value,srcdoc=document.getElementById('srcdoc'),defaultsrcdoc=document.getElementById('defaultsrcdoc'),iframe=document.createElement('iframe'),customsrcdoc=document.getElementById('customsrcdoc').value;
+                let target=document.getElementById('code-container'),src=document.getElementById('source').value,theclass=document.getElementById('theclass').value,srcdoc=document.getElementById('srcdoc'),defaultsrcdoc=document.getElementById('defaultsrcdoc'),iframe=document.createElement('iframe'),customsrcdoc=document.getElementById('customsrcdoc').value;
                 if(theclass){iframe.classList.add(theclass)}
                 iframe.src=src;
                 iframe.height=450;
@@ -28,7 +28,7 @@
                         iframe.srcdoc=`<style>*{padding:0;margin:0;overflow:hidden}html,body{background:${bgcolor};height:100%;width:100%;display:flex;align-items:center;justify-content:center;transition:.4s;}body:hover{background:${bghovercolor};}a{text-decoration:none;color:${textcolor};font-size:21pt;font-family:'roboto',arial,helvetica,sans-serif;}</style><a href='${src}' rel='nofollow'>Klik untuk melihat ${isi}</a>`;}
                     else{iframe.srcdoc=srcdoc}
                 }
-                let iframetext=`<pre>${iframe.outerHTML}</pre>`;
+                let iframetext=iframe.outerHTML;
                 target.textContent=iframetext;
             }
         }
@@ -75,7 +75,7 @@
             </div>
             <button class="type-1-btn" onclick="iframegenerator.main_run()">Generate!</button>
         </div>
-        <section id="result"></section>
+        <section id="result"><pre id='code-container'></pre></section>
         <button class="type-1-btn" onclick="field.clear()">Bersihkan</button>
     </div>
     <script>gen.nav();gen.nav('footer');gen.head.title();</script>
