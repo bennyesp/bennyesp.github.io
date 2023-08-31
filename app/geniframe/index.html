@@ -35,7 +35,7 @@
                 }
                 let iframetext=iframe.outerHTML;
                 target.textContent=iframetext;
-                target.insertAdjacentHTML('afterend',copybutton);
+                target.insertAdjacentElement('afterend',copybutton);
                 preview.appendChild(iframe);
             },
             copy:async function(){
