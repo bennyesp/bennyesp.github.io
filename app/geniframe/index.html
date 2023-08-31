@@ -1,24 +1,22 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+    <style>
+        .hidden{display:none;}
+    </style>
     <script src="/scripts/mainfunc.js"></script>
     <script>
         const ptype='app';
-        const ppn=0.11;
-        const field={
-            ppn:function(){
-                let ha=parseInt(document.getElementById('harga').value),r=document.getElementById('result'),pp,hp;
-                if(ha<=0||!ha){r.innerHTML='<i class="forbidden">Masukkan harga!</i>'}
-                else{
-                    pp=ppn*ha;
-                    ppp=pp.toLocaleString('id');
-                    hp=ha+pp;
-                    hap=ha.toLocaleString('id');
-                    hpp=hp.toLocaleString('id');
-                    r.innerHTML=`harga setelah PPN 11% = harga awal + (harga awal × ppn 11%)<br>= Rp${hap} + (Rp${hap} × 11%)<br>Rp${hap} + Rp${ppp}<div class='numres'>= Rp${hpp}</div>`;
-                }
+        const iframegenerator={
+            toggle_defaultsrcdoc:function(){
+                /*let srcdoc=document.getElementById('srcdoc'),default_srcdoc_cover=document.getElementById('default-srcdoc-cover');
+                if (srcdoc.checked===TRUE){default_srcdoc_cover.classList.remove('hidden')}*/
+                let default_srcdoc_cover=document.getElementById('default-srcdoc-cover');
+                default_srcdoc_cover.classList.toggle('hidden')
             },
-            clear:function(){document.getElementById('harga').value=document.getElementById('result').textContent='';}
+            main_run:function(){
+                let target=document.getElementById('result'),src=document.getElementById('source').value,class=document.getElementById('theclass');
+            }
         }
         gen.head.font.exec();gen.head.style.exec();gen.head.met.exec();
     </script>
@@ -37,11 +35,11 @@
             </div>
             <div class="form-line">
                 <label for="srcdoc">srcdoc</label>
-                <input type="checkbox" id="srcdoc" name="srcdoc" onclick="">
+                <input type="checkbox" checked id="srcdoc" name="srcdoc" onclick="iframegenerator.toggle_defaultsrcdoc();">
             </div>
             <div class="form-line" id='default-srcdoc-cover'>
                 <label for="defaultsrcdoc">default srcdoc</label>
-                <input type="checkbox" checked id="defaultsrcdoc" name="defaultsrcdoc" onchange="">
+                <input type="checkbox" checked id="defaultsrcdoc" name="defaultsrcdoc" onclick="">
             </div>
             <div class="form-line" id='custom-srcdoc-cover'>
                 <label for="customsrcdoc">custom srcdoc</label>
