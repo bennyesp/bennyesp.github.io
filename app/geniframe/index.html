@@ -39,7 +39,7 @@
                 preview.appendChild(iframe);
             },
             copy:async function(){
-                let target=document.getElementById('code-container');
+                let target=document.getElementById('code-container').textContent;
                 try {
                   await navigator.clipboard.writeText(target);
                   alert('Berhasil menyalin iframe');
