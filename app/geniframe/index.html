@@ -28,7 +28,7 @@
                         iframe.srcdoc=`<style>*{padding:0;margin:0;overflow:hidden}html,body{background:${bgcolor};height:100%;width:100%;display:flex;align-items:center;justify-content:center;transition:.4s;}body:hover{background:${bghovercolor};}a{text-decoration:none;color:${textcolor};font-size:21pt;font-family:'roboto',arial,helvetica,sans-serif;}</style><a href='${src}' rel='nofollow'>Klik untuk melihat ${isi}</a>`;}
                     else{iframe.srcdoc=srcdoc}
                 }
-                let iframetext=iframe.outerHTML;
+                let iframetext=`<pre>${iframe.outerHTML}</pre>`;
                 target.textContent=iframetext;
             }
         }
