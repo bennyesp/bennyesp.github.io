@@ -21,6 +21,7 @@
                 let preview=document.getElementById('preview'),target=document.getElementById('code-container'),src=document.getElementById('source').value,theclass=document.getElementById('theclass').value,srcdoc=document.getElementById('srcdoc'),defaultsrcdoc=document.getElementById('defaultsrcdoc'),iframe=document.createElement('iframe'),customsrcdoc=document.getElementById('customsrcdoc').value,copybutton=document.getElementById('copybutton');
                 if(theclass){iframe.classList.add(theclass)}
                 let ytvidurlpattern=/watch\?v\=/gi;
+                console.log(ytvidurlpattern.test(src));
                 if(ytvidurlpattern.test(src)){src.replace(ytvidurlpattern,'embed/')}
                 iframe.src=src;
                 iframe.height=450;
