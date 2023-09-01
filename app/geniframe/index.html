@@ -23,6 +23,7 @@
                 let ytvidurlpattern=/watch\?v\=/gi;
                 iframe.src=(ytvidurlpattern.test(src))?src.replace(ytvidurlpattern,'embed/'):src;
                 iframe.height=450;
+                iframe.title='YouTube video player';
                 if(srcdoc){
                     let srcdoc,isi=(/(g(oogle\s?)?maps?|osm|open\s?street\s?map|waze|yandex\s?maps)/gi.test(theclass)||/(google\.com\/maps|openstreetmap\.org|waze\.com|yandex\.com\/maps)/.test(src))?'peta':(/(you\s?tube|yt|d(aily\s?)?motion|tiktok|tt|vimeo)/gi.test(theclass)||/(youtube\.com|tiktok\.com|dailymotion\.com|vimeo\.com)/.test(src))?'video':'';
                     if(defaultsrcdoc){
@@ -30,6 +31,9 @@
                         iframe.srcdoc=`<style>*{padding:0;margin:0;overflow:hidden}html,body{background:${bgcolor};height:100%;width:100%;display:flex;align-items:center;justify-content:center;transition:.4s;}body:hover{background:${bghovercolor};}a{text-decoration:none;color:${textcolor};font-size:21pt;font-family:'roboto',arial,helvetica,sans-serif;}</style><a href='${src}' rel='nofollow'>Klik untuk melihat ${isi}</a>`;}
                     else{iframe.srcdoc=srcdoc}
                 }
+                iframe.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+                iframe.allowFullscreen=true;
+                //<iframe width="560" height="315" src="https://www.youtube.com/embed/UaVr8wcTCmQ?si=Yr8aWvsmQi6y9Usx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 let iframetext=iframe.outerHTML;
                 target.textContent=iframetext;
                 if(!copybutton){
