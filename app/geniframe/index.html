@@ -20,6 +20,8 @@
             main_run:function(){
                 let preview=document.getElementById('preview'),target=document.getElementById('code-container'),src=document.getElementById('source').value,theclass=document.getElementById('theclass').value,srcdoc=document.getElementById('srcdoc'),defaultsrcdoc=document.getElementById('defaultsrcdoc'),iframe=document.createElement('iframe'),customsrcdoc=document.getElementById('customsrcdoc').value,copybutton=document.getElementById('copybutton');
                 if(theclass){iframe.classList.add(theclass)}
+                let ytvidurlpattern=/watch\?v\=/gi;
+                if(ytvidurlpattern.test(src)){src.replace(ytvidurlpattern,'embed/')}
                 iframe.src=src;
                 iframe.height=450;
                 if(srcdoc){
@@ -33,7 +35,7 @@
                 target.textContent=iframetext;
                 if(!copybutton){
                     copybutton=document.createElement('button');
-                    copybutton.classList.add('copybutton');
+                    copybutton.classList.add('copybutton','type-1-btn');
                     copybutton.type='button';
                     copybutton.id='copybutton';
                     copybutton.textContent='Salin';
@@ -53,11 +55,12 @@
                 }
             },
             reset:function(){
-                let src=document.getElementById('source'),theclass=document.getElementById('theclass'),srcdoc=document.getElementById('srcdoc'),defaultsrcdoc=document.getElementById('defaultsrcdoc'),customsrcdoc=document.getElementById('customsrcdoc'),bgcolor=document.getElementById('bgcolor'),bghovercolor=document.getElementById('bghovercolor'),textcolor=document.getElementById('textcolor');
-                src.value=theclass.value=customsrcdoc.value='';srcdoc.checked=defaultsrcdoc.checked=true;
+                let src=document.getElementById('source'),theclass=document.getElementById('theclass'),srcdoc=document.getElementById('srcdoc'),defaultsrcdoc=document.getElementById('defaultsrcdoc'),customsrcdoc=document.getElementById('customsrcdoc'),bgcolor=document.getElementById('bgcolor'),bghovercolor=document.getElementById('bghovercolor'),textcolor=document.getElementById('textcolor'),preview=document.getElementById('preview'),copybutton=document.getElementById('copybutton');
+                src.value=theclass.value=customsrcdoc.value=preview.innerHTML='';srcdoc.checked=defaultsrcdoc.checked=true;
                 bgcolor.value='#dddddd';
                 bghovercolor.value='#bbbbbb';
                 textcolor.value='#444444';
+                copybutton.remove();
             }
         }
         gen.head.font.exec();gen.head.style.exec();gen.head.met.exec();
@@ -114,7 +117,7 @@
                 </div>
             </div>
         </section>
-        <button class="type-1-btn" onclick="field.clear()">Bersihkan</button>
+        <button class="type-1-btn" onclick="iframegenerator.reset()">Atur ulang</button>
     </div>
     <script>gen.nav();gen.nav('footer');gen.head.title();</script>
 </body>
