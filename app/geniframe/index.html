@@ -27,6 +27,7 @@
                 if(theclass){iframe.classList.add(theclass)}
                 let ytvidurlpattern=/watch\?v\=/gi;
                 let src=(ytvidurlpattern.test(srcraw))?srcraw.replace(ytvidurlpattern,'embed/'):srcraw;
+                iframe.src=src;
                 iframe.height=450;
                 iframe.title='YouTube video player';
                 if(srcdoc){
