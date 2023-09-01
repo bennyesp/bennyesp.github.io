@@ -51,6 +51,7 @@
                 }
                 preview.innerHTML='';
                 preview.appendChild(iframe);
+                htmlhighlighter();
             },
             colorvalue:function(){
                 document.getElementById('bgcolorvalue').textContent=document.getElementById('bgcolor').value;
@@ -136,6 +137,6 @@
         </section>
         <button class="type-1-btn" onclick="iframegenerator.reset()">Atur ulang</button>
     </div>
-    <script>gen.nav();gen.nav('footer');gen.head.title();iframegenerator.colorvalue();htmlhighlighter();</script>
+    <script>gen.nav();gen.nav('footer');gen.head.title();iframegenerator.colorvalue();</script>
 </body>
 </html>
