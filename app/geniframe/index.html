@@ -18,10 +18,10 @@
                 customsrcdoc.classList.toggle('hidden');
             },
             main_run:function(){
-                let preview=document.getElementById('preview'),target=document.getElementById('code-container'),src=document.getElementById('source').value,theclass=document.getElementById('theclass').value,srcdoc=document.getElementById('srcdoc'),defaultsrcdoc=document.getElementById('defaultsrcdoc'),iframe=document.createElement('iframe'),customsrcdoc=document.getElementById('customsrcdoc').value,copybutton=document.getElementById('copybutton');
+                let preview=document.getElementById('preview'),target=document.getElementById('code-container'),srcraw=document.getElementById('source').value,theclass=document.getElementById('theclass').value,srcdoc=document.getElementById('srcdoc'),defaultsrcdoc=document.getElementById('defaultsrcdoc'),iframe=document.createElement('iframe'),customsrcdoc=document.getElementById('customsrcdoc').value,copybutton=document.getElementById('copybutton');
                 if(theclass){iframe.classList.add(theclass)}
                 let ytvidurlpattern=/watch\?v\=/gi;
-                iframe.src=(ytvidurlpattern.test(src))?src.replace(ytvidurlpattern,'embed/'):src;
+                let src=(ytvidurlpattern.test(srcraw))?srcraw.replace(ytvidurlpattern,'embed/'):srcraw;
                 iframe.height=450;
                 iframe.title='YouTube video player';
                 if(srcdoc){
@@ -32,8 +32,7 @@
                     else{iframe.srcdoc=srcdoc}
                 }
                 iframe.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
-                iframe.allowFullscreen=true;
-                //<iframe width="560" height="315" src="https://www.youtube.com/embed/UaVr8wcTCmQ?si=Yr8aWvsmQi6y9Usx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                iframe.allowFullscreen='true';
                 let iframetext=iframe.outerHTML;
                 target.textContent=iframetext;
                 if(!copybutton){
