@@ -5,5 +5,6 @@ function htmlhighlighter(){
     b=b.replace(/(height|allow|allowfullscreen|class|id|title|src|srcdoc|)(\s?\=\s?)(".")/gi,'<span class="htmlattribute">$1</span>$2<span class="htmlattrvalue">$3</span>');
     b=b.replace(/(\&lt;\/?)(iframe)/gi,'$1<span class="htmltag">$2</span>');
     a.innerHTML=b;
+    console.log('ver2');
   }
 }
