@@ -26,7 +26,7 @@
                 iframe.src=src;
                 iframe.height=450;
                 if(srcdoc){
-                    let srcdoc,isi=(/(g(oogle\s?)?maps?|osm|open\s?street\s?map|waze|yandex\s?maps)/gi.test(theclass))?'peta':(/(you\s?tube|yt|d(aily\s?)?motion|tiktok|tt|vimeo)/gi.test(theclass))?'video':'';
+                    let srcdoc,isi=(/(g(oogle\s?)?maps?|osm|open\s?street\s?map|waze|yandex\s?maps)/gi.test(theclass)||/(google\.com\/maps|openstreetmap\.org|waze\.com|yandex\.com\/maps)/.test(src))?'peta':(/(you\s?tube|yt|d(aily\s?)?motion|tiktok|tt|vimeo)/gi.test(theclass))?'video':'';
                     if(defaultsrcdoc){
                         let bgcolor=document.getElementById('bgcolor').value,bghovercolor=document.getElementById('bghovercolor').value,textcolor=document.getElementById('textcolor').value;
                         iframe.srcdoc=`<style>*{padding:0;margin:0;overflow:hidden}html,body{background:${bgcolor};height:100%;width:100%;display:flex;align-items:center;justify-content:center;transition:.4s;}body:hover{background:${bghovercolor};}a{text-decoration:none;color:${textcolor};font-size:21pt;font-family:'roboto',arial,helvetica,sans-serif;}</style><a href='${src}' rel='nofollow'>Klik untuk melihat ${isi}</a>`;}
@@ -56,7 +56,7 @@
                 }
             },
             reset:function(){
-                let src=document.getElementById('source'),theclass=document.getElementById('theclass'),srcdoc=document.getElementById('srcdoc'),defaultsrcdoc=document.getElementById('defaultsrcdoc'),customsrcdoc=document.getElementById('customsrcdoc'),bgcolor=document.getElementById('bgcolor'),bghovercolor=document.getElementById('bghovercolor'),textcolor=document.getElementById('textcolor'),preview=document.getElementById('preview'),copybutton=document.getElementById('copybutton');
+                let src=document.getElementById('source'),theclass=document.getElementById('theclass'),srcdoc=document.getElementById('srcdoc'),defaultsrcdoc=document.getElementById('defaultsrcdoc'),customsrcdoc=document.getElementById('customsrcdoc'),bgcolor=document.getElementById('bgcolor'),bghovercolor=document.getElementById('bghovercolor'),textcolor=document.getElementById('textcolor'),preview=document.getElementById('preview'),copybutton=document.getElementById('copybutton'),code=document.getElementById('code-container');
                 src.value=theclass.value=customsrcdoc.value=preview.innerHTML='';srcdoc.checked=defaultsrcdoc.checked=true;
                 bgcolor.value='#dddddd';
                 bghovercolor.value='#bbbbbb';
