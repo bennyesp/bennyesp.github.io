@@ -47,6 +47,9 @@
                 preview.innerHTML='';
                 preview.appendChild(iframe);
             },
+            colorvalue:function(){
+                document.getElementById('bgcolorvalue').textContent=document.getElementById('bgcolor').value;
+            }
             copy:async function(){
                 let target=document.getElementById('code-container');
                 try {
@@ -97,7 +100,8 @@
                 </div>
                 <div class="form-line">
                     <label for="bgcolor">srcdoc background color</label>
-                    <input type="color" checked id="bgcolor" name="bgcolor" value='#dddddd'>
+                    <input type="color" checked id="bgcolor" name="bgcolor" value='#dddddd' onchange='iframegenerator.colorvalue();'>
+                    <span class='' id='bgcolorvalue'></span>
                 </div>
                 <div class="form-line">
                     <label for="bgcolor">srcdoc background hover color</label>
