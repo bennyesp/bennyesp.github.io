@@ -22,7 +22,7 @@
                 customsrcdoc.classList.toggle('hidden');
             },
             main_run:function(){
-                let preview=document.getElementById('preview'),target=document.getElementById('code-container'),srcraw=document.getElementById('source').value,theclass=document.getElementById('theclass').value,srcdoc=document.getElementById('srcdoc'),defaultsrcdoc=document.getElementById('defaultsrcdoc'),iframe=document.createElement('iframe'),customsrcdoc=document.getElementById('customsrcdoc').value,copybutton=document.getElementById('copybutton');
+                let preview=document.getElementById('preview'),target=document.getElementById('code-container'),targetcover=document.getElementById('code-container-cover');srcraw=document.getElementById('source').value,theclass=document.getElementById('theclass').value,srcdoc=document.getElementById('srcdoc'),defaultsrcdoc=document.getElementById('defaultsrcdoc'),iframe=document.createElement('iframe'),customsrcdoc=document.getElementById('customsrcdoc').value,copybutton=document.getElementById('copybutton');
                 if(theclass){iframe.classList.add(theclass)}
                 let ytvidurlpattern=/watch\?v\=/gi;
                 let src=(ytvidurlpattern.test(srcraw))?srcraw.replace(ytvidurlpattern,'embed/'):srcraw;
@@ -46,7 +46,7 @@
                     copybutton.id='copybutton';
                     copybutton.textContent='Salin';
                     copybutton.setAttribute('onclick','iframegenerator.copy()');
-                    target.insertAdjacentElement('afterend',copybutton);
+                    targetcover.insertAdjacentElement('afterend',copybutton);
                 }
                 preview.innerHTML='';
                 preview.appendChild(iframe);
@@ -125,7 +125,7 @@
         <section id="result">
             <div class='code'>
                 <h2 class='inH'>Kode</h2>
-                <pre><code id='code-container'></code></pre>
+                <pre id='code-container-cover'><code id='code-container'></code></pre>
             </div>
             <div class='preview'>
                 <h2 class='inH'>Preview</h2>
