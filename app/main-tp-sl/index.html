@@ -20,12 +20,10 @@
                 op=parseFloat(opt);
                 lotsize=parseInt(lotsizet);
                 let price=op;
-                console.log(`type of op (${op}) = ${typeof(op)}`);
-                console.log(`type of lotsize (${lotsize})= ${typeof(lotsize)}`);
                 while(p<=0){
-                    p=(price-op)*cs*lotsize;
+                    p=(price-op)*lotsize;
+                    pfull=p*cs
                     x=op+p;
-                    console.log(`min tp di ${price} = ${x}`);
                     price+=adder;
                 }
                 document.getElementById('open').textContent=op;
