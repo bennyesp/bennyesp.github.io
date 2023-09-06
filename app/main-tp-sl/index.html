@@ -10,11 +10,18 @@
         .form-line label{font-size: 10pt;}
     </style>
     <script src="/scripts/mainfunc.js"></script>
-    <script src="/scripts/htmlhighlighter.js"></script>
     <script>
         const ptype='app';
         const tpsl={
-            main_run:function(){},
+            main_run:function(){
+                let op=document.getElementById('openprice').value,cur=document.getElementById('currency').value,x=0,y=0,price=0,cs=100000,action=document.getElementById('action').value,lotsize=document.getElementById('lotsize').value;
+                let adder=0.00001,mintp,minsl;
+                while(x<=0){
+                    x=(price-open)*cs*lotsize;
+                    price+=adder;
+                }
+                document.getElementById('open').textContent=x;
+            },
             reset:function(){}
         }
         gen.head.font.exec();gen.head.style.exec();gen.head.met.exec();
@@ -26,24 +33,44 @@
         <div class="form-container">
             <div class="form-line">
                 <label for="currency">Mata uang</label>
-                <select name='currency'>
-                    <option value='eurusd'>EURUSD</option>
+                <select name='currency' id='currency'>
+                    <option value='eurusd' selected>EURUSD</option>
+                </select>
+            </div>
+            <div class="form-line">
+                <label for="action">Transaksi</label>
+                <select name='action' id='action'>
+                    <option value='buy' selected>Buy</option>
+                    <option value='sell' selected>Sell</option>
                 </select>
             </div>
             <div class="form-line">
                 <label for="openprice">Open price</label>
-                <input type="text" id="openprice" name="openprice">
+                <input type="number" id="openprice" name="openprice">
             </div>
-            <button class="type-1-btn" onclick="">Generate!</button>
+            <div class="form-line">
+                <label for="lotsize">Open price</label>
+                <input type="number" id="lotsize" name="lotsize">
+            </div>
+            <button class="type-1-btn" onclick="tpsl.main_run()">Hitung</button>
         </div>
         <section id="result">
             <div class='code'>
                 <h2 class='inH'>Kode</h2>
                 <pre id='code-container-cover'><code id='code-container'></code></pre>
             </div>
-            <div class='preview'>
-                <h2 class='inH'>Preview</h2>
+            <div class='result'>
+                <h2 class='inH'>Hasil perhitungan</h2>
                 <div id='preview'>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Open</td><td class='titikdua titik-dua'>:</td><td id='open'></td>
+                                <td>Min. TP</td><td class='titikdua titik-dua'>:</td><td id='mintp'></td>
+                                <td>Min. SL</td><td class='titikdua titik-dua'>:</td><td id='minsl'></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>
