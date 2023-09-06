@@ -18,6 +18,7 @@
                 let adder=0.00001,mintp,minsl;
                 while(x<=0){
                     x=(price-open)*cs*lotsize;
+                    console.log(x);
                     price+=adder;
                 }
                 document.getElementById('open').textContent=x;
