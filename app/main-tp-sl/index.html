@@ -15,18 +15,18 @@
         const tpsl={
             main_run:function(){
                 let opt=document.getElementById('openprice').value,cur=document.getElementById('currency').value,p=0,x=0,y=0,cs=100000,action=document.getElementById('action').value,lotsizet=document.getElementById('lotsize').value;
-                let adder=0.00001,mintp,minsl;
+                let adder=1,mintp,minsl;
                 op=parseFloat(opt);
                 lotsize=parseInt(lotsizet);
                 let price=op;
                 console.log(`type of op (${op}) = ${typeof(op)}`);
                 console.log(`type of lotsize (${lotsize})= ${typeof(lotsize)}`);
                 while(p<=0){
-                    price=Math.floor(price/10000)*10000;
+                    pricefloor=Math.floor(price/10000)*10000;
                     p=Math.floor(((price-op)*cs*lotsize)/10000)*10000;
                     let x=op+p;
                     console.log(`min tp di ${price} = ${x}`);
-                    price+=adder;
+                    price=(pricefloor+adder)/10000;
                 }
                 document.getElementById('open').textContent=op;
                 document.getElementById('mintp').textContent=x;
