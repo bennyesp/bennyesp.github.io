@@ -22,7 +22,8 @@
                 console.log(`type of op (${op}) = ${typeof(op)}`);
                 console.log(`type of lotsize (${lotsize})= ${typeof(lotsize)}`);
                 while(x<=0){
-                    x=(price-op)*cs*lotsize;
+                    price=Math.floor(price/10000)*10000;
+                    x=Math.floor(((price-op)*cs*lotsize)/10000)*10000
                     console.log(`profit ${price} = ${x}`);
                     price+=adder;
                 }
