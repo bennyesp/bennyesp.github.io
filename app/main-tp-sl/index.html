@@ -16,9 +16,9 @@
         const tpsl={
             main_run:function(){
                 let opt=document.getElementById('openprice').value,cur=document.getElementById('currency').value,p=0,x=0,y=0,cs=100000,action=document.getElementById('action').value,lotsizet=document.getElementById('lotsize').value;
-                let adder=1,mintp,minsl;
+                let adder=0.00001,mintp,minsl;
                 op=parseFloat(opt);
-                lotsize=parseFloat(lotsizet);
+                lotsize=parseInt(lotsizet);
                 let price=op;
                 while(p<=0){
                     p=(price-op)*lotsize;
