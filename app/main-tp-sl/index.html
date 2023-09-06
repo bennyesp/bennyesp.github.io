@@ -18,7 +18,7 @@
                 let opt=document.getElementById('openprice').value,cur=document.getElementById('currency').value,p=0,x=0,y=0,cs=100000,action=document.getElementById('action').value,lotsizet=document.getElementById('lotsize').value;
                 let adder=1,mintp,minsl;
                 op=parseFloat(opt);
-                lotsize=parseInt(lotsizet);
+                lotsize=parseFloat(lotsizet);
                 let price=op;
                 while(p<=0){
                     p=(price-op)*lotsize;
@@ -36,7 +36,7 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="title">Penghitungan TP/SL otomatis</h1>
+        <h1 class="title">Penghitungan TP/SL minimum</h1>
         <div class="form-container">
             <div class="form-line">
                 <label for="currency">Mata uang</label>
