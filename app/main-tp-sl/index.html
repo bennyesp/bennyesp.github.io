@@ -14,7 +14,7 @@
         const ptype='app';
         const tpsl={
             main_run:function(){
-                let op=document.getElementById('openprice').value,cur=document.getElementById('currency').value,x=0,y=0,price=0,cs=100000,action=document.getElementById('action').value,lotsize=document.getElementById('lotsize').value;
+                let op=parseInt(document.getElementById('openprice').value),cur=document.getElementById('currency').value,x=0,y=0,price=0,cs=100000,action=document.getElementById('action').value,lotsize=parseInt(document.getElementById('lotsize').value);
                 let adder=0.00001,mintp,minsl;
                 while(x<=0){
                     x=(price-open)*cs*lotsize;
@@ -49,7 +49,7 @@
                 <input type="number" id="openprice" name="openprice">
             </div>
             <div class="form-line">
-                <label for="lotsize">Open price</label>
+                <label for="lotsize">Lot</label>
                 <input type="number" id="lotsize" name="lotsize">
             </div>
             <button class="type-1-btn" onclick="tpsl.main_run()">Hitung</button>
