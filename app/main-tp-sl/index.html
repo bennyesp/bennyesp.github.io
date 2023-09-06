@@ -18,6 +18,8 @@
                 console.log(`type of op (${op}) = ${typeof(op)}`);
                 console.log(`type of lotsize (${lotsize})= ${typeof(lotsize)}`);
                 let adder=0.00001,mintp,minsl;
+                op=parseInt(op);
+                lotsize=parseInt(lotsize);
                 while(x<=0){
                     x=(price-open)*cs*lotsize;
                     price+=adder;
