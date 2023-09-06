@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <style>
+        div.hidden{display:none;}
+        #preview iframe{width:100%;}
+        .form-line{
+            padding:0.5em;box-sizing:border-box;
+        }
+        .form-line label{font-size: 10pt;}
+    </style>
+    <script src="/scripts/mainfunc.js"></script>
+    <script src="/scripts/htmlhighlighter.js"></script>
+    <script>
+        const ptype='app';
+        const tpsl={
+            main_run:function(){},
+            reset:function(){}
+        }
+        gen.head.font.exec();gen.head.style.exec();gen.head.met.exec();
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Penghitungan TP/SL otomatis</h1>
+        <div class="form-container">
+            <div class="form-line">
+                <label for="source">Source</label>
+                <input type="text" id="source" name="source">
+            </div>
+            <div class="form-line">
+                <label for="theclass">class</label>
+                <input type="text" id="theclass" name="theclass">
+            </div>
+            <div class="form-line">
+                <label for="srcdoc">srcdoc</label>
+                <input type="checkbox" checked id="srcdoc" name="srcdoc" onclick="">
+            </div>
+            <div id='form-group-srcdoc'>
+                <div class="form-line" id='default-srcdoc-cover'>
+                    <label for="defaultsrcdoc">default srcdoc</label>
+                    <input type="checkbox" checked id="defaultsrcdoc" name="defaultsrcdoc" onclick="">
+                </div>
+                <div class="form-line hidden" id='custom-srcdoc-cover'>
+                    <label for="customsrcdoc">custom srcdoc</label>
+                    <textarea id="customsrcdoc" name="customsrcdoc" rows="5" cols="50"></textarea>
+                </div>
+                <div class="form-line">
+                    <label for="bgcolor">srcdoc background color</label>
+                    <input type="color" checked id="bgcolor" name="bgcolor" value='#dddddd' oninput='tpsl.colorvalue();'>
+                    <span class='' id='bgcolorvalue'></span>
+                </div>
+                <div class="form-line">
+                    <label for="bgcolor">srcdoc background hover color</label>
+                    <input type="color" checked id="bghovercolor" name="bghovercolor" value='#bbbbbb' oninput='tpsl.colorvalue();'>
+                    <span class='' id='bghovercolorvalue'></span>
+                </div>
+                <div class="form-line">
+                    <label for="textcolor">srcdoc text color</label>
+                    <input type="color" id="textcolor" name="textcolor" value='#444444' oninput='tpsl.colorvalue();'>
+                    <span class='' id='textcolorvalue'></span>
+                </div>
+            </div>
+            <button class="type-1-btn" onclick="">Generate!</button>
+        </div>
+        <section id="result">
+            <div class='code'>
+                <h2 class='inH'>Kode</h2>
+                <pre id='code-container-cover'><code id='code-container'></code></pre>
+            </div>
+            <div class='preview'>
+                <h2 class='inH'>Preview</h2>
+                <div id='preview'>
+                </div>
+            </div>
+        </section>
+        <button class="type-1-btn" onclick="tpsl.reset()">Atur ulang</button>
+    </div>
+    <script>gen.nav();gen.nav('footer');gen.head.title();tpsl.colorvalue();</script>
+</body>
+</html>
