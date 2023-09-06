@@ -25,41 +25,14 @@
         <h1 class="title">Penghitungan TP/SL otomatis</h1>
         <div class="form-container">
             <div class="form-line">
-                <label for="source">Source</label>
-                <input type="text" id="source" name="source">
+                <label for="currency">Mata uang</label>
+                <select name='currency'>
+                    <option value='eurusd'>EURUSD</option>
+                </select>
             </div>
             <div class="form-line">
-                <label for="theclass">class</label>
-                <input type="text" id="theclass" name="theclass">
-            </div>
-            <div class="form-line">
-                <label for="srcdoc">srcdoc</label>
-                <input type="checkbox" checked id="srcdoc" name="srcdoc" onclick="">
-            </div>
-            <div id='form-group-srcdoc'>
-                <div class="form-line" id='default-srcdoc-cover'>
-                    <label for="defaultsrcdoc">default srcdoc</label>
-                    <input type="checkbox" checked id="defaultsrcdoc" name="defaultsrcdoc" onclick="">
-                </div>
-                <div class="form-line hidden" id='custom-srcdoc-cover'>
-                    <label for="customsrcdoc">custom srcdoc</label>
-                    <textarea id="customsrcdoc" name="customsrcdoc" rows="5" cols="50"></textarea>
-                </div>
-                <div class="form-line">
-                    <label for="bgcolor">srcdoc background color</label>
-                    <input type="color" checked id="bgcolor" name="bgcolor" value='#dddddd' oninput='tpsl.colorvalue();'>
-                    <span class='' id='bgcolorvalue'></span>
-                </div>
-                <div class="form-line">
-                    <label for="bgcolor">srcdoc background hover color</label>
-                    <input type="color" checked id="bghovercolor" name="bghovercolor" value='#bbbbbb' oninput='tpsl.colorvalue();'>
-                    <span class='' id='bghovercolorvalue'></span>
-                </div>
-                <div class="form-line">
-                    <label for="textcolor">srcdoc text color</label>
-                    <input type="color" id="textcolor" name="textcolor" value='#444444' oninput='tpsl.colorvalue();'>
-                    <span class='' id='textcolorvalue'></span>
-                </div>
+                <label for="openprice">Open price</label>
+                <input type="text" id="openprice" name="openprice">
             </div>
             <button class="type-1-btn" onclick="">Generate!</button>
         </div>
