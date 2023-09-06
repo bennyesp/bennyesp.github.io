@@ -15,7 +15,7 @@
         gen.head.font.exec();gen.head.style.exec();gen.head.met.exec();
         const tpsl={
             main_run:function(){
-                let opt=document.getElementById('openprice').value,cur=document.getElementById('currency').value,p=0,x=0,y=0,cs=0.00001,action=document.getElementById('action').value,lotsizet=document.getElementById('lotsize').value;
+                let opt=document.getElementById('openprice').value,cur=document.getElementById('currency').value,p=0,x=0,y=0,cs=100000,action=document.getElementById('action').value,lotsizet=document.getElementById('lotsize').value;
                 let adder=1,mintp,minsl;
                 op=parseFloat(opt);
                 lotsize=parseInt(lotsizet);
