@@ -22,11 +22,10 @@
                 console.log(`type of op (${op}) = ${typeof(op)}`);
                 console.log(`type of lotsize (${lotsize})= ${typeof(lotsize)}`);
                 while(p<=0){
-                    pricefloor=Math.floor(price/10000)*10000;
-                    p=Math.floor(((price-op)*cs*lotsize)/10000)*10000;
+                    p=(price-op)*cs*lotsize;
                     let x=op+p;
                     console.log(`min tp di ${price} = ${x}`);
-                    price=(pricefloor+adder)/10000;
+                    price+=adder;
                 }
                 document.getElementById('open').textContent=op;
                 document.getElementById('mintp').textContent=x;
