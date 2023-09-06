@@ -12,6 +12,7 @@
     <script src="/scripts/mainfunc.js"></script>
     <script>
         const ptype='app';
+        gen.head.font.exec();gen.head.style.exec();gen.head.met.exec();
         const tpsl={
             main_run:function(){
                 let opt=document.getElementById('openprice').value,cur=document.getElementById('currency').value,p=0,x=0,y=0,cs=0.00001,action=document.getElementById('action').value,lotsizet=document.getElementById('lotsize').value;
@@ -32,7 +33,6 @@
             },
             reset:function(){}
         }
-        gen.head.font.exec();gen.head.style.exec();gen.head.met.exec();
     </script>
 </head>
 <body>
