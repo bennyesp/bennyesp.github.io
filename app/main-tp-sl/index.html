@@ -14,12 +14,12 @@
         const ptype='app';
         const tpsl={
             main_run:function(){
-                let op=document.getElementById('openprice').value,cur=document.getElementById('currency').value,x=0,y=0,price=0,cs=100000,action=document.getElementById('action').value,lotsize=document.getElementById('lotsize').value;
+                let opt=document.getElementById('openprice').value,cur=document.getElementById('currency').value,x=0,y=0,price=0,cs=100000,action=document.getElementById('action').value,lotsizet=document.getElementById('lotsize').value;
+                let adder=0.00001,mintp,minsl;
+                op=parseFloat(opt);
+                lotsize=parseInt(lotsizet);
                 console.log(`type of op (${op}) = ${typeof(op)}`);
                 console.log(`type of lotsize (${lotsize})= ${typeof(lotsize)}`);
-                let adder=0.00001,mintp,minsl;
-                op=parseFloat(op);
-                lotsize=parseInt(lotsize);
                 while(x<=0){
                     x=(price-open)*cs*lotsize;
                     price+=adder;
