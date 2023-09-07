@@ -10,7 +10,7 @@
                     k=b/a;
                     k=Math.ceil(k*100)/100;
                     let bbm=await getjson('https://raw.githubusercontent.com/benblogging/data-biaya/main/bbm.json');
-                    let hargabbm=bbm[jenisbbm[0]][jenisbbm[1]];
+                    let hargabbm=bbm[jenisbbm[0]][jenisbbm[1]][t];
                     let bayarbbm=hargabbm*k;
                     r.innerHTML=`<table>
                         <tr>
