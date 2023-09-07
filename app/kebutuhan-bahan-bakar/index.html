@@ -5,7 +5,8 @@
     <script>
         const field={
             hitung:function(){
-                let a=parseInt(document.getElementById('konsum').value),b=parseInt(document.getElementById('jarak').value),r=document.getElementById('result'),k;
+                let a=parseInt(document.getElementById('konsum').value),b=parseInt(document.getElementById('jarak').value),r=document.getElementById('result'),k,jenisbbm=document.getElementById('jenisbbm').value;
+                
                 if(a&&b){
                     k=b/a;
                     k=Math.ceil(k*100)/100;
@@ -47,6 +48,19 @@
             <div class="form-line">
                 <label for="jarak">Jarak (km)</label>
                 <input type="number" id="jarak" name="jarak">
+            </div>
+            <div class="form-line">
+                <label for="jenisbbm">Jenis BBM</label>
+                <select id="jenisbbm" name="jenisbbm">
+                    <optgroup label='Pertamina'>
+                        <option value='ron90'>Pertalite</option>
+                        <option value='ron92'>Pertamax</option>
+                        <option value='ron98'>Pertamax Turbo</option>
+                        <option value='cn48'>Solar</option>
+                        <option value='cn51'>Dexlite</option>
+                        <option value='cn53'>Pertamina Dex</option>
+                    </optgroup>
+                </select>
             </div>
             <button class="type-1-btn" onclick="field.hitung()">Hitung</button>
         </div>
