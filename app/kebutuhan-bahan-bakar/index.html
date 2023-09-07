@@ -4,12 +4,14 @@
     <script src="/scripts/mainfunc.js"></script>
     <script>
         const field={
-            hitung:function(){
-                let a=parseInt(document.getElementById('konsum').value),b=parseInt(document.getElementById('jarak').value),r=document.getElementById('result'),k,jenisbbm=document.getElementById('jenisbbm').value;
-                
+            hitung:async function(){
+                let a=parseInt(document.getElementById('konsum').value),b=parseInt(document.getElementById('jarak').value),r=document.getElementById('result'),k,jenisbbm=document.getElementById('jenisbbm').value.split('-');
                 if(a&&b){
                     k=b/a;
                     k=Math.ceil(k*100)/100;
+                    let bbm=await getjson('https://raw.githubusercontent.com/benblogging/data-biaya/main/bbm.json');
+                    let hargabbm=bbm[jenisbbm[0]][jenisbbm[1]];
+                    let bayarbbm=hargabbm*k;
                     r.innerHTML=`<table>
                         <tr>
                             <td>Konsumsi BBM</td>
@@ -25,10 +27,21 @@
                             <td>Kebutuhan BBM</td>
                             <td class="titik2">:</td>
                             <td>${b} km ÷ ${a} km/l</td>
+                        </tr>
                         <tr>
                             <td></td>
                             <td></td>
                           <td class='numres'>= ${k} liter</div></td>
+                        </tr>
+                        <tr>
+                            <td>Biaya BBM</td>
+                            <td class="titik2">:</td>
+                            <td>${k} liter × Rp${hargabbm}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                          <td class='numres'>= ${bayarbbm} liter</div></td>
                         </tr>
                         </table>`;
                 }
@@ -53,12 +66,12 @@
                 <label for="jenisbbm">Jenis BBM</label>
                 <select id="jenisbbm" name="jenisbbm">
                     <optgroup label='Pertamina'>
-                        <option value='ron90'>Pertalite</option>
-                        <option value='ron92'>Pertamax</option>
-                        <option value='ron98'>Pertamax Turbo</option>
-                        <option value='cn48'>Solar</option>
-                        <option value='cn51'>Dexlite</option>
-                        <option value='cn53'>Pertamina Dex</option>
+                        <option value='pertamina-ron90'>Pertalite</option>
+                        <option value='pertamina-ron92'>Pertamax</option>
+                        <option value='pertamina-ron98'>Pertamax Turbo</option>
+                        <option value='pertamina-cn48'>Solar</option>
+                        <option value='pertamina-cn51'>Dexlite</option>
+                        <option value='pertamina-cn53'>Pertamina Dex</option>
                     </optgroup>
                 </select>
             </div>
