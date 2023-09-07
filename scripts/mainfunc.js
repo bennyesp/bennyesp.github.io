@@ -1,3 +1,16 @@
+async function getjson(a,b){
+    let prelink={
+        bbg:'https://benblogging.github.io'
+    }
+    let link;
+    if(a==='other'||!a){
+        link=b;
+    }else{
+        link=`${prelink[a]}${b}`;
+    }
+    let js_on=await fetch(link);
+    return js_on;
+}
 const gen={
     head:{
         met:{
