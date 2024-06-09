@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="/scripts/mainfunc.js"></script>
+    <script>
+        const field={
+            hitung:function(){
+                let a=document.getElementById('namabarang').value,b=document.getElementById('satuan').value,c=parseInt(document.getElementById('jumlahperkemasan').value),d=parseInt(document.getElementById('harga1kemasan').value),r=document.getElementById('result');
+                let k=(d/c).toLocaleString('id');
+                r.innerHTML=`<h2 class="inH">Hasil</h2>Harga per ${b} dari barang ${a} <div class='numres'>= Rp${k}</div>`;
+            },
+            clear:function(){document.getElementById('namabarang').value=document.getElementById('jumlahperkemasan').value=document.getElementById('harga1kemasan').value=document.getElementById('result').textContent='';}
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Harga barang per satuan</h1>
+        <section class="form-container">
+            <div class="form-line">
+                <label for="namabarang">Nama barang</label>
+                <input type="text" name="namabarang" id="namabarang">
+            </div>
+            <div class="form-line">
+                <label for="satuan">Satuan isi</label>
+                <select name="satuan" id="satuan">
+                    <option value="gram">gram</option>
+                    <option value="liter">liter</option>
+                    <option value="ml">ml</option>
+                    <option value="bungkus">bungkus</option>
+                    <option value="buah">buah</option>
+                </select>
+            </div>
+            <div class="form-line">
+                <label for="jumlahperkemasan">Banyaknya dalam 1 kemasan</label>
+                <input type="number" name="jumlahperkemasan" id="jumlahperkemasan">
+            </div>
+            <div class="form-line">
+                <label for="harga1kemasan">Harga 1 kemasan</label>
+                <input type="number" name="harga1kemasan" id="harga1kemasan">
+            </div>
+            <button class="type-1-btn" onclick="field.hitung()">Hitung</button>
+        </section>
+        <section id="result"></section>
+        <button class="type-1-btn" onclick="field.clear()">Bersihkan</button>
+    </div>
+    <script>var ptype='app';gen.head.font.exec();gen.head.style.exec();gen.head.met.exec();gen.head.title();gen.nav();gen.nav('footer');</script>
+</body>
+</html>

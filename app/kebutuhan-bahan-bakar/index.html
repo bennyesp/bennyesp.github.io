@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <script src="/scripts/mainfunc.js"></script>
+    <script>
+        const field={
+            hitung:async function(){
+                let a=parseInt(document.getElementById('konsum').value),b=parseInt(document.getElementById('jarak').value),r=document.getElementById('result'),k,jenisbbm=document.getElementById('jenisbbm').value.split('-');
+                if(a&&b){
+                    k=b/a;
+                    k=Math.ceil(k*100)/100;
+                    let bbm=await getjson('https://raw.githubusercontent.com/benblogging/data-biaya/main/bbm.json');
+                    let hargabbm=bbm[jenisbbm[0]][jenisbbm[1]]['t'];
+                    let bayarbbm=hargabbm*k;
+                    r.innerHTML=`<table>
+                        <tr>
+                            <td>Konsumsi BBM</td>
+                            <td class="titik2">:</td>
+                            <td>${a} km/l</td>
+                        </tr>
+                        <tr>
+                            <td>Jarak</td>
+                            <td class="titik2">:</td>
+                            <td>${b} km</td>
+                        </tr>
+                        <tr>
+                            <td>Kebutuhan BBM</td>
+                            <td class="titik2">:</td>
+                            <td>${b} km ÷ ${a} km/l</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                          <td class='numres'>= ${k} liter</div></td>
+                        </tr>
+                        <tr>
+                            <td>Biaya BBM</td>
+                            <td class="titik2">:</td>
+                            <td>${k} liter × Rp${hargabbm}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                          <td class='numres'>= Rp${bayarbbm.toLocaleString('id-ID')}</div></td>
+                        </tr>
+                        </table>`;
+                }
+            },
+            clear:function(){document.getElementById('konsum').value=document.getElementById('jarak').value=document.getElementById('result').textContent='';}
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Kebutuhan bahan bakar</h1>
+        <div class="form-container">
+            <div class="form-line">
+                <label for="konsum">Konsumsi BBM (km/l)</label>
+                <input type="number" id="konsum" name="konsum">
+            </div>
+            <div class="form-line">
+                <label for="jarak">Jarak (km)</label>
+                <input type="number" id="jarak" name="jarak">
+            </div>
+            <div class="form-line">
+                <label for="jenisbbm">Jenis BBM</label>
+                <select id="jenisbbm" name="jenisbbm">
+                    <optgroup label='Pertamina'>
+                        <option value='pertamina-ron90'>Pertalite</option>
+                        <option value='pertamina-ron92'>Pertamax</option>
+                        <option value='pertamina-ron98'>Pertamax Turbo</option>
+                        <option value='pertamina-cn48'>Solar</option>
+                        <option value='pertamina-cn51'>Dexlite</option>
+                        <option value='pertamina-cn53'>Pertamina Dex</option>
+                    </optgroup>
+                </select>
+            </div>
+            <button class="type-1-btn" onclick="field.hitung()">Hitung</button>
+        </div>
+        <section id="result"></section>
+        <button class="type-1-btn" onclick="field.clear()">Bersihkan</button>
+    </div>
+    <script>var ptype='app';gen.head.font.exec();gen.head.style.exec();gen.head.met.exec();gen.head.title();gen.nav();gen.nav('footer');</script>
+</body>
+</html>

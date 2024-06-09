@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <style>
+        div.hidden{display:none;}
+        #preview iframe{width:100%;}
+        .form-line{
+            padding:0.5em;box-sizing:border-box;
+        }
+        .form-line label{font-size: 10pt;}
+    </style>
+    <script src="/scripts/mainfunc.js"></script>
+    <script>
+        const ptype='app';
+        gen.head.font.exec();gen.head.style.exec();gen.head.met.exec();
+        const tpsl={
+            main_run:function(){
+                let opt=document.getElementById('openprice').value,cur=document.getElementById('currency').value,p=0,x=0,y=0,cs=100000,action=document.getElementById('action').value,lotsizet=document.getElementById('lotsize').value;
+                let adder=0.00001,pfull=0;
+                op=parseFloat(opt);
+                lotsize=parseInt(lotsizet);
+                let price=op;
+                while(pfull<=2){
+                    p=(price-op)*lotsize;
+                    pfull=p*cs
+                    x=op+p;
+                    price+=adder;
+                }
+                document.getElementById('open').textContent=op;
+                document.getElementById('profit').textContent=pfull;
+                document.getElementById('mintp').textContent=x;
+            },
+            reset:function(){}
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Penghitungan TP/SL minimum</h1>
+        <div class="form-container">
+            <div class="form-line">
+                <label for="currency">Mata uang</label>
+                <select name='currency' id='currency'>
+                    <option value='eurusd' selected>EURUSD</option>
+                </select>
+            </div>
+            <div class="form-line">
+                <label for="action">Transaksi</label>
+                <select name='action' id='action'>
+                    <option value='buy' selected>Buy</option>
+                    <option value='sell' selected>Sell</option>
+                </select>
+            </div>
+            <div class="form-line">
+                <label for="openprice">Open price</label>
+                <input type="number" id="openprice" name="openprice">
+            </div>
+            <div class="form-line">
+                <label for="lotsize">Lot</label>
+                <input type="number" id="lotsize" name="lotsize">
+            </div>
+            <button class="type-1-btn" onclick="tpsl.main_run()">Hitung</button>
+        </div>
+        <section id="result">
+            <div class='result'>
+                <h2 class='inH'>Hasil perhitungan</h2>
+                <div id='preview'>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Open</td><td class='titikdua titik-dua'>:</td><td id='open'></td>
+                            </tr>
+                            <tr>
+                                <td>Min. TP</td><td class='titikdua titik-dua'>:</td><td id='mintp'></td><td>Profit = <span id='profit'></span></td>
+                            </tr>
+                            <tr>
+                                <td>Min. SL</td><td class='titikdua titik-dua'>:</td><td id='minsl'></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+        <button class="type-1-btn" onclick="tpsl.reset()">Atur ulang</button>
+    </div>
+    <script>gen.nav();gen.nav('footer');gen.head.title();</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <script src="/scripts/mainfunc.js"></script>
+    <script>
+        const ppn=0.11;
+        const field={
+            ppn:function(){
+                let ha=parseInt(document.getElementById('harga').value),r=document.getElementById('result'),pp,hp;
+                if(ha<=0||!ha){r.innerHTML='<i class="forbidden">Masukkan harga!</i>'}
+                else{
+                    pp=ppn*ha;
+                    ppp=pp.toLocaleString('id');
+                    hp=ha+pp;
+                    hap=ha.toLocaleString('id');
+                    hpp=hp.toLocaleString('id');
+                    r.innerHTML=`harga setelah PPN 11% = harga awal + (harga awal × ppn 11%)<br>= Rp${hap} + (Rp${hap} × 11%)<br>Rp${hap} + Rp${ppp}<div class='numres'>= Rp${hpp}</div>`;
+                }
+            },
+            clear:function(){document.getElementById('harga').value=document.getElementById('result').textContent='';}
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Hitung harga PPN 11%</h1>
+        <div class="form-container">
+            <div class="form-line">
+                <label for="harga">Harga awal</label>
+                <input type="number" id="harga" name="harga">
+            </div>
+            <button class="type-1-btn" onclick="field.ppn()">Hitung</button>
+        </div>
+        <section id="result"></section>
+        <button class="type-1-btn" onclick="field.clear()">Bersihkan</button>
+    </div>
+    <script>var ptype='app';gen.head.font.exec();gen.head.style.exec();gen.head.met.exec();gen.head.title();gen.nav();gen.nav('footer');</script>
+</body>
+</html>

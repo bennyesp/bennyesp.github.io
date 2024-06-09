@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <script src="/scripts/mainfunc.js"></script>
+    <script>
+        const field={
+            hitung:function(){
+                let a=parseInt(document.getElementById('asli').value),b=document.getElementById('diskon').value,i,k,d,d1,rk='',r=document.getElementById('result'),b0,b1,as,d1s,d2s,ds;
+                if(!a&&b){r.innerHTML='<i class="forbidden">Masukkan harga asli!</i>';}
+                else if(!a&&!b){r.innerHTML='<i class="forbidden">Masukkan harga asli dan jumlah diskon!</i>';}
+                else if(!b||b.endsWith('+')){r.innerHTML='<i class="forbidden">Masukkan diskon dengan lengkap!</i>';}
+                else if(a){
+                    b=b.split('+');
+                    b0=parseInt(b[0]);
+                    d1=(b0/100)*a;
+                    d=d1;
+                    if(b[1]){
+                        b1=parseInt(b[1]);
+                        d2=(b1/100)*(a-d1);
+                        d=d1+d2;
+                        d2s=d2.toLocaleString('id');
+                    }
+                    k=a-d;
+                    k=k.toLocaleString('id');
+                    as=a.toLocaleString('id');
+                    ds=d.toLocaleString('id');
+                    d1s=d1.toLocaleString('id');
+                    r.innerHTML=(b[1])?`<h2 class="inH">Hasil</h2>
+                    <table>
+                        <tr>
+                            <td>Harga asli</td>
+                            <td class="titik2">:</td>
+                            <td>Rp${as}</td>
+                        </tr>
+                        <tr>
+                            <td>% Diskon 1</td>
+                            <td class="titik2">:</td>
+                            <td>${b0}%</td>
+                        </tr>
+                        <tr>
+                            <td>Besar Diskon 1</td>
+                            <td class="titik2">:</td>
+                            <td>${b0}% × Rp${as} = Rp${d1s}</td>
+                        </tr>
+                        <tr>
+                            <td>% Diskon 2</td>
+                            <td class="titik2">:</td>
+                            <td>${b1}%</td>
+                        </tr>
+                        <tr>
+                            <td>Besar Diskon 2</td>
+                            <td class="titik2">:</td>
+                            <td>${b1}% × Rp${a-d1} = Rp${d2s}</td>
+                        </tr>
+                        <tr>
+                            <td>Total diskon</td>
+                            <td class="titik2">:</td>
+                            <td>Rp${d1s} + Rp${d2s} = Rp${ds}</td>
+                        </tr>
+                        <tr>
+                            <td>Harga setelah diskon</td>
+                            <td class="titik2">:</td>
+                            <td>Rp${as} - Rp${ds}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td class='numres'>= Rp${k}</td>
+                        </tr>
+                    </table>`:`
+                    <table>
+                        <tr>
+                            <td>Harga asli</td>
+                            <td class="titik2">:</td>
+                            <td>Rp${as}</td>
+                        </tr>
+                        <tr>
+                            <td>% Diskon</td>
+                            <td class="titik2">:</td>
+                            <td>${b0}%</td>
+                        </tr>
+                        <tr>
+                            <td>Besar Diskon</td>
+                            <td class="titik2">:</td>
+                            <td>${b0}% × Rp${as} = Rp${ds}</td>
+                        </tr>
+                        <tr>
+                            <td>Harga setelah diskon</td>
+                            <td class="titik2">:</td>
+                            <td>Rp${as} - Rp${ds}</td>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                          <td class='numres'>= Rp${k}</div></td>
+                        </tr>
+                        </table>`;
+                }
+            },
+            clear:function(){document.getElementById('asli').value=document.getElementById('diskon').value=document.getElementById('result').textContent='';}
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Penghitung diskon</h1>
+        <div class="form-container">
+            <div class="form-line">
+                <label for="asli">Harga asli</label>
+                <input type="number" id="asli" name="asli">
+            </div>
+            <div class="form-line">
+                <label for="diskon">Diskon</label>
+                <input type="text" id="diskon" name="diskon">
+            </div>
+            <button class="type-1-btn" onclick="field.hitung()">Hitung</button>
+        </div>
+        <section id="result"></section>
+        <button class="type-1-btn" onclick="field.clear()">Bersihkan</button>
+        <div class="explain">
+            <h2 class="inH">Cara menggunakan</h2>
+            <ol>
+                <li>Tulis harga asli dalam kolom harga asli, kemudian tulis persen diskon di kolom diskon.</li>
+                <li>Tekan "Hitung" untuk menghitung diskon. Penjelasan dan hasil akan muncul di bawahnya.</li>
+                <li>Tekan "Bersihkan" untuk membersihkan hasil dan kolom pengisian.</li>
+            </ol>
+            <h2 class="inH">Catatan</h2>
+            <p>Diskon yang dimasukkan dapat berbentuk seperti ini: <b>"20%"</b> atau berbentuk seperti ini: <b>"50%+20%"</b>.</p>
+            <p>Dalam memasukkan diskon di kolom, tidak perlu menambahkan simbol %, cukup 20, atau 50+20 (tanpa spasi).</p>
+            <h2 class="inH">Penjelasan diskon "X% + Y%"</h2>
+            <p>Mari kita contohkan dengan diskon 50% + 20% agar lebih mudah dimengerti.</p>
+            <p>Pada tipe diskon seperti ini, jumlah diskon bukan 70% dari harga awal, tetapi, jumlah diskon adalah 50% harga awal ditambah dengan 20% dari harga setelah dikurangi diskon pertama.</p>
+        </div>
+    </div>
+    <script>var ptype='app';gen.head.font.exec();gen.head.style.exec();gen.head.met.exec();gen.head.title();gen.nav();gen.nav('footer');</script>
+</body>
+</html>

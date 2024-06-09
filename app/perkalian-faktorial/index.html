@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <script src="/scripts/mainfunc.js"></script>
+    <script>
+        const field={
+            faktorial:function(){
+                let a=parseInt(document.getElementById('angka').value),min,max,i,k=1,r=document.getElementById('result');
+                if(a<=0){r.innerHTML='<i class="forbidden">Angka tidak boleh nol atau negatif!</i>';}
+                if(a>0){
+                for(i=a;i>0;i--){k*=i;}k=k.toLocaleString('id');r.innerHTML=(a>6)?`<h2 class="inH">Hasil</h2>${a} × ${a-1} × ${a-2} × ... × 3 × 2 × 1<div class='numres'>= ${k}</div>`:(a<=6&&a>4)?`<h2 class="inH">Hasil</h2>${a} × ${a-1} × ... × 2 × 1 <div class='numres'>= ${k}</div>`:(a===4)?`<h2 class="inH">Hasil</h2>4 × 3 × 2 × 1 <div class='numres'>= ${k}</div>`:(a===3)?`<h2 class="inH">Hasil</h2>3 × 2 × 1 <div class='numres'>= ${k}</div>`:(a===2)?`<h2 class="inH">Hasil</h2>2 × 1 <div class='numres'>= ${k}</div>`:`<h2 class="inH">Hasil</h2><div class='numres'>= ${k}</div>`;
+                }
+            },
+            clear:function(){document.getElementById('angka').value=document.getElementById('result').textContent='';}
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Perkalian faktorial</h1>
+        <div class="form-container">
+            <div class="form-line">
+                <label for="angka">Angka</label>
+                <input type="number" id="angka" name="angka">
+            </div>
+            <button class="type-1-btn" onclick="field.faktorial()">Faktorial</button>
+        </div>
+        <section id="result"></section>
+        <button class="type-1-btn" onclick="field.clear()">Bersihkan</button>
+    </div>
+    <script>var ptype='app';gen.head.font.exec();gen.head.style.exec();gen.head.met.exec();gen.head.title();gen.nav();gen.nav('footer');</script>
+</body>
+</html>

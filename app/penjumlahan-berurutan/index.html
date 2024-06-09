@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <script src="/scripts/mainfunc.js"></script>
+    <script>
+        const field={
+            jumlahkan:function(){
+                let a=parseInt(document.getElementById('angka1').value),b=parseInt(document.getElementById('angka2').value),min,max,i,k=0,r=document.getElementById('result');
+                a=(a)?a:0;b=(b)?b:0;
+                if(a<b){min=a,max=b;}else if(a==b){r.innerHTML='<i class="forbidden">Angka 1 dan 2 tidak boleh sama!</i>';}else if(a>b){min=b,max=a;}
+                if(a!==b){
+                    for(i=min;i<=max;i++){k+=i;}k=k.toLocaleString('id');r.innerHTML=(max-min>6)?`<h2 class="inH">Hasil</h2>${min} + ${min+1} + ${min+2} + ... + ${max-2} + ${max-1} + ${max} <div class='numres'>= ${k}</div>`:(max-min<6&&max-min>1)?`<h2 class="inH">Hasil</h2>${min} + ... + ${max} <div class='numres'>= ${k}</div>`:`<h2 class="inH">Hasil</h2>${min} + ${max} <div class='numres'>= ${k}</div>`;
+                }
+            },
+            clear:function(){document.getElementById('angka1').value=document.getElementById('angka2').value=document.getElementById('result').textContent='';}
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Penjumlahan berurutan</h1>
+        <div class="form-container">
+            <div class="form-line">
+                <label for="angka1">Angka terkecil</label>
+                <input type="number" id="angka1" name="angka1">
+            </div>
+            <div class="form-line">
+                <label for="angka2">Angka terbesar</label>
+                <input type="number" id="angka2" name="angka2">
+            </div>
+            <button class="type-1-btn" onclick="field.jumlahkan()">Jumlahkan</button>
+        </div>
+        <section id="result"></section>
+        <button class="type-1-btn" onclick="field.clear()">Bersihkan</button>
+    </div>
+    <script>var ptype='app';gen.head.font.exec();gen.head.style.exec();gen.head.met.exec();gen.head.title();gen.nav();gen.nav('footer');</script>
+</body>
+</html>
